@@ -3,12 +3,18 @@ const ctx = canvas.getContext("2d");
 const mode = document.querySelector(".js-mode");
 const clear = document.querySelector(".js-clear");
 const range = document.querySelector(".js-range");
+const colors = document.querySelector(".js-colors");
 
 canvas.width = 550;
 canvas.height = 550;
 
 let painting = false;
 let filling = false;
+
+function handleColorChange(event) {
+  ctx.strokeStyle = event.target.style.backgroundColor;
+  ctx.fillStyle = event.target.style.backgroundColor;
+}
 
 function handleRangeChange(event) {
   ctx.lineWidth = event.target.value;
@@ -68,4 +74,8 @@ if (clear) {
 
 if (range) {
   range.addEventListener("mouseup", handleRangeChange);
+}
+
+if (colors) {
+  colors.addEventListener("click", handleColorChange);
 }
