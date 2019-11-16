@@ -1,12 +1,17 @@
 const canvas = document.querySelector(".js-canvas");
 const ctx = canvas.getContext("2d");
 const mode = document.querySelector(".js-mode");
+const clear = document.querySelector(".js-clear");
 
 canvas.width = 550;
 canvas.height = 550;
 
 let painting = false;
 let filling = false;
+
+function handleClear(event) {
+  ctx.clearRect(0, 0, 550, 550);
+}
 
 function handleModeChange(event) {
   if (filling) {
@@ -51,4 +56,8 @@ if (canvas) {
 
 if (mode) {
   mode.addEventListener("click", handleModeChange);
+}
+
+if (clear) {
+  clear.addEventListener("click", handleClear);
 }
