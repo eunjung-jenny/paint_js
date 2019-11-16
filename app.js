@@ -2,13 +2,18 @@ const canvas = document.querySelector(".js-canvas");
 const ctx = canvas.getContext("2d");
 const mode = document.querySelector(".js-mode");
 const clear = document.querySelector(".js-clear");
+//const range = document.querySelector(".js-range");
 
 canvas.width = 550;
 canvas.height = 550;
 
 let painting = false;
 let filling = false;
-
+/*
+function handleRangeChange(event) {
+  ctx.lineWidth = event.target.value;
+}
+*/
 function handleClear(event) {
   ctx.clearRect(0, 0, 550, 550);
 }
@@ -35,15 +40,14 @@ function onMouseDown(event) {
 }
 
 function onMouseMove(event) {
+  const x = event.offsetX;
+  const y = event.offsetY;
   if (painting) {
-    const x = event.offsetX;
-    const y = event.offsetY;
-    if (painting) {
-      ctx.lineTo(x, y);
-      ctx.stroke();
-    } else {
-      ctx.moveTo(x, y);
-    }
+    ctx.lineTo(x, y);
+    ctx.stroke();
+  } else {
+    ctx.beginPath();
+    ctx.moveTo(x, y);
   }
 }
 
@@ -61,3 +65,8 @@ if (mode) {
 if (clear) {
   clear.addEventListener("click", handleClear);
 }
+/*
+if (range) {
+  range.addEventListener("mouseup", handleRangeChange);
+}
+*/
