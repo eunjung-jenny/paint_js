@@ -1,54 +1,62 @@
 @import "reset.css";
 
 body {
-    background-color: rgb(211, 211, 226);
-    font-size: 12px;
-    color: #2f2f2f;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background-color: rgb(211, 211, 226);
+  font-size: 12px;
+  color: #2f2f2f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .canvas {
-    width: 550px;
-    height: 550px;
-    background-color: white;
-    border-radius: 30px;
-    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
-    margin: 15px 0px;
+  width: 550px;
+  height: 550px;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+  margin: 15px 0px;
 }
 
 .control {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .btns,
 .colors {
-    display: flex;
+  display: flex;
 }
 
-.btn, .range {
-    cursor: pointer;
+.btn,
+.range {
+  cursor: pointer;
 }
 
 .btns .btn {
-    background-color: white;
-    padding: 4px 16px;
-    border-radius: 4px;
-    margin-right: 10px;
-    text-transform: uppercase;
-    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+  all: unset;
+  width: 60px;
+  height: 20px;
+  background-color: white;
+  border-radius: 5px;
+  margin-right: 10px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  line-height: normal;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11),
+    0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .range {
-    margin: 24px 0px;
+  margin: 24px 0px;
 }
 
 .colors .color {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 1px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 1px;
 }
