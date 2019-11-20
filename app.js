@@ -4,6 +4,7 @@ const mode = document.querySelector(".js-mode");
 const clear = document.querySelector(".js-clear");
 const range = document.querySelector(".js-range");
 const colors = document.querySelector(".js-colors");
+const save = document.querySelector(".js-save");
 
 canvas.width = 550;
 canvas.height = 550;
@@ -65,6 +66,14 @@ function onMouseMove(event) {
   }
 }
 
+function handleSave(event) {
+  const image = canvas.toDataURL();
+  const link = document.createElement("a");
+  link.href = image;
+  link.download = "pains_js";
+  link.click();
+}
+
 if (canvas) {
   canvas.addEventListener("mousemove", onMouseMove);
   canvas.addEventListener("mousedown", onMouseDown);
@@ -86,4 +95,8 @@ if (range) {
 
 if (colors) {
   colors.addEventListener("click", handleColorChange);
+}
+
+if (save) {
+  save.addEventListener("click", handleSave);
 }
