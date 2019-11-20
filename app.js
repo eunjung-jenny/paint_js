@@ -74,11 +74,16 @@ function handleSave(event) {
   link.click();
 }
 
+function handleCM(event) {
+  event.preventDefault();
+}
+
 if (canvas) {
   canvas.addEventListener("mousemove", onMouseMove);
   canvas.addEventListener("mousedown", onMouseDown);
   canvas.addEventListener("mouseleave", stopPainting);
   canvas.addEventListener("mouseup", stopPainting);
+  canvas.addEventListener("contextmenu", handleCM);
 }
 
 if (mode) {
