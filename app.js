@@ -4,6 +4,7 @@ const mode = document.querySelector(".js-mode");
 const clear = document.querySelector(".js-clear");
 const range = document.querySelector(".js-range");
 const colors = document.querySelector(".js-colors");
+const colorAll = colors.querySelectorAll("li");
 const save = document.querySelector(".js-save");
 
 canvas.width = 550;
@@ -18,6 +19,10 @@ let filling = false;
 function handleColorChange(event) {
   ctx.strokeStyle = event.target.style.backgroundColor;
   ctx.fillStyle = event.target.style.backgroundColor;
+  colorAll.forEach(color =>
+    color.classList.remove("selected")
+  );
+  event.target.classList.add("selected");
 }
 
 function handleRangeChange(event) {
@@ -98,8 +103,10 @@ if (range) {
   range.addEventListener("mouseup", handleRangeChange);
 }
 
-if (colors) {
-  colors.addEventListener("click", handleColorChange);
+if (colorAll) {
+  colorAll.forEach(color =>
+    color.addEventListener("click", handleColorChange)
+  );
 }
 
 if (save) {
