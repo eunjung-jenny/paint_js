@@ -8,6 +8,9 @@ const colors = document.querySelector(".js-colors");
 canvas.width = 550;
 canvas.height = 550;
 
+ctx.fillStyle = "white";
+ctx.fillRect(0, 0, 550, 550);
+
 let painting = false;
 let filling = false;
 
@@ -21,7 +24,12 @@ function handleRangeChange(event) {
 }
 
 function handleClear(event) {
-  ctx.clearRect(0, 0, 550, 550);
+  const temp = ctx.fillStyle;
+  ctx.fillStyle = "white";
+  console.log(ctx.fillStyle);
+  ctx.fillRect(0, 0, 550, 550);
+  ctx.fillStyle = temp;
+  console.log(ctx.fillStyle);
 }
 
 function handleModeChange(event) {
